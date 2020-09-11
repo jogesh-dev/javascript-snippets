@@ -1,0 +1,599 @@
+// Arrays and Object in depth 
+let anArray = ['Name', 98790, {}];
+
+// Array Methods
+{
+  let bankers = [1, 2, 3];
+  bankers[0] = 78;
+  // bankers[100] = 786;
+  // console.log(bankers.length);
+
+  //Array Methods
+  bankers.push(4);
+  bankers.pop();
+  
+  bankers.unshift(0);
+  bankers.shift();
+  console.log(bankers);
+
+  //slice 
+  //arr.slice([start], [end])
+  console.log( bankers.slice(1)); 
+  console.log(bankers);
+  
+  // array swissknife
+  //arr.splice(index[, deleteCount, elem1, ..., elemN])
+  bankers.push(89);
+  bankers.push(89);
+  console.log(bankers);
+  
+  bankers.splice(2, 2, 6, 8, 9);
+  console.log(bankers);
+
+  // concat
+  let prospects = [{ id: 89 }, { id: 76, name: 'John' }, { id: 45 }, { id: 77, name: 'John' }];
+  let customers = [2, 603,76, 76, 45, 76];
+  let allClients = customers.concat(prospects);
+  allClients;
+console.log(prospects);
+
+
+  //Split and join
+  let groceryMessage = 'milk, water, lemon, eggs';
+
+  let groceryList = groceryMessage.split(", ");
+  groceryList;
+
+  let sendMessage = 'get some ' + groceryList.join(", ");
+  sendMessage;
+
+
+  console.log('message'.split(''));
+
+  allClients;
+  //indexOf, lastIndexOf, includes
+  console.log(allClients.indexOf(786879));
+
+  console.log(allClients.lastIndexOf(76));
+  console.log(allClients.includes(76));
+
+
+  //looping through an array **
+  //forEach
+  function printMe(me) {
+    console.log(me);
+  }
+
+  
+  prospects.forEach(function () {
+    // ... 
+  });
+
+
+  // In js we deal with array and object a lot. Using proper array method can improve coding standard a lot. 
+
+  // find and findIndex
+  let ss = prospects.find(function (prospect) {
+    // if (prospect.id === 76) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
+
+    return prospect.id === 76;
+  });
+  console.log(ss);
+
+  // Find
+  let seventySix = prospects.find(prospect => prospect.id === 76);
+  console.log(seventySix);
+
+  // FindIndex
+  console.log(prospects);
+  
+  let indexOf77 = prospects.findIndex(prospect => prospect.id === 77);
+  indexOf77;
+
+  // Filter
+  let prospectsWithName = prospects.filter(prospect => prospect.name);
+  
+  prospectsWithName;
+  prospects;
+  
+  // Map
+  lastCustomerId = 199;
+  let newCustomers = prospects.map(prospect => {
+    console.log(prospects);
+    
+    lastCustomerId++;
+    return {
+      name: prospect.name,
+      id: lastCustomerId,
+      initialPlan: null
+    }
+  });
+
+  prospects;
+  newCustomers;
+  console.log(newCustomers[1]);
+
+
+  // Sort
+  customers;
+  console.log("603" < "76");
+  
+  let orderedCustomers = customers.sort();
+  orderedCustomers;
+
+  orderedCustomers = customers.sort((a, b) => {
+    if (a > b) {
+      return 1;
+    }
+    if (a < b) {
+      return -1;
+    }
+    if (a == b) {
+      return 0;
+    }
+  });
+
+  orderedCustomers;
+
+  orderedCustomers = customers.sort((a, b) => a - b);
+  orderedCustomers;
+
+  let reversed = orderedCustomers.reverse();
+  reversed;
+
+  // some 
+  allClients;
+
+  var someoneHasAClientName = allClients.some(function(client) {
+    return client.name;
+  });
+  someoneHasAClientName;
+
+  // every
+  var everyOneHasAClientName = allClients.every(function(client) {
+    return client.name;
+  });
+  everyOneHasAClientName;
+
+  if(!allClients.every(client => client.name)){
+    // addId function
+  }
+
+  //actual manipulation
+
+
+
+  //REDUCE
+  // let value = arr.reduce(function(accumulator, item) {
+  //   // ...
+  // }, [initial])
+
+  let marks = [34, 54, 35, 67, 98];
+
+  let totalMarks = marks.reduce(function (total, mark) {
+    return total + mark;
+  }, 0);
+  totalMarks;
+
+  let totalMarksObject = marks.reduce(function (result, mark) {
+    result.total = result.total + mark;
+    return result;
+  }, {total: 0});
+
+  totalMarksObject;
+}
+//object
+{
+  // creating a literal object
+  let user = {
+    firstName : 'John',
+    lastName : 'Doe',
+    gender: 'Male'
+  };
+  console.log('why john doe ',{user});
+
+  // ES6 syntax , 
+  let firstName = 'John';
+  let Gender = 'Doe';
+  // short if key value same 
+  let anonUser = {
+    firstName,
+    Gender
+  };
+  console.log(anonUser);
+
+  //we have been doing this in our console statements
+  console.log({anonUser : anonUser});
+  console.log({anonUser});
+
+
+  //constructor function
+  const Options = function(darkMode, font){
+    this.featureAccess = true;
+    //if an object is returned 
+    return {
+      darkMode: true,
+      font: ['Times New Roman', 'Helvetica'],
+      getFont : function(){
+        return this.font;
+      }
+    }
+
+  }
+
+  let userOptions = new Options();
+  console.log(userOptions);
+
+  // using another object as prototype
+  let guestOptions = Object.create(userOptions);
+  console.log(guestOptions);
+  guestOptions.darkMode = true;
+  guestOptions.font = ['Comic sans', 'Sans Sarif'];
+   // prototype of guestOptions is userOptions
+  console.log(guestOptions);
+  console.log(guestOptions.getFont());
+  
+  // accessing properties from an object 
+  let modeKey = 'darkMode';
+
+  //bracket notation and dot notation
+  guestOptions.darkMode;
+  console.log(guestOptions.darkMode);
+  console.log(guestOptions[modeKey]);
+  
+  guestOptions[modeKey]; // pass a variable
+
+  // adding a property
+  guestOptions.r2l = false;
+  console.log(guestOptions);
+  
+  // deleting a property
+  delete guestOptions.font;
+  console.log(guestOptions);
+
+
+  let i = 1;
+  let totalPoints = 100;
+  const POINT_SYSTEM = {
+    totalPoints,
+    pointOnKill : 10,
+    pointOnDamage: 2,
+    ['point' + ++i] : 5, //computed property
+    aMethod : function (a, b) {
+      return '45'
+    },
+    es5Method(a, b){
+      return '46'
+    }
+  }
+
+  console.log(POINT_SYSTEM); 
+  
+  // object declared with const, do we get error on modify 
+  // adding a new property
+  POINT_SYSTEM.pointOnCriticalHit = 5;
+  console.log(POINT_SYSTEM);
+  // what if we want to prevent this seal  - cannot add or remove
+
+  // modifying a property value 
+  // POINT_SYSTEM.totalPoints = 200;
+  // console.log(POINT_SYSTEM); 
+  
+  // changing reference
+  // POINT_SYSTEM = {
+  //   totalPoints : 500,
+  //   pointOnKill : 100,
+  //   pointOnDamage: 20
+  // }
+
+
+  // Preventing modification by users of our library   
+  console.log(POINT_SYSTEM);
+  // Object.preventExtensions(POINT_SYSTEM);
+  // Object.seal(POINT_SYSTEM);
+  // Object.freeze(POINT_SYSTEM);
+  POINT_SYSTEM.totalPoints = 200;
+  console.log(POINT_SYSTEM.totalPoints);
+  POINT_SYSTEM.pointsForMercy = 4;
+  console.log(POINT_SYSTEM.pointsForMercy);  
+  delete POINT_SYSTEM.pointOnDamage;
+  console.log(POINT_SYSTEM.pointOnDamage);
+
+  Object.isSealed(POINT_SYSTEM);
+
+  // JSON - javascript object notation - use vs xml
+  // object vs JSON, "" key, only js primitives as values, or another valid json  , JSON doesn't support computed properties
+  // JSON methods
+
+  let user12 = {
+    "firstName" : "John",
+    "lastName" : 'Doe',
+    "gender": 'Male'
+  };
+
+  JSON.stringify(user)
+  console.log(JSON.stringify(user));
+  
+
+
+  // converting to json and vice versa 
+  // trick to deep copy object witout reference
+
+
+  // copying an object 
+  // by reference / value
+  let twin = user;
+  user;
+  twin;
+  // twin.firstName = 'Jane';
+  user;
+
+  let anothertwin;
+  //method 1
+  // anotherTwin = JSON.parse(JSON.stringify(user)); 
+  // anotherTwin.firstName = 'somename'
+  //method 2
+  // twin;
+  // anotherTwin;
+
+  // anotherTwin2 = Object.assign(twin);
+  // anotherTwin2.name = 'x'
+  //method 3
+  let anotherTwin = { ...user };
+
+
+
+  twin;
+  anotherTwin;
+
+  anotherTwin.firstName = 'somename';
+  user;
+  anotherTwin;
+
+
+  var miniBoss = {
+    health: 100,
+    attack: 21,
+    immuneToPoison: true,
+    'immune to poison': true,
+    immuneToDeath: true,
+    size: {
+      height: 10,
+      width: 10,
+      length: 20
+    },
+    showDialogue: function (dialogue = 'I will kill you') {
+      return dialogue;
+    },
+    showLastWords(finalSay = 'I will be back') {
+      return finalSay;
+    }
+
+  }
+
+
+  console.log(miniBoss);
+
+
+  function attackEnemy(attackPoints, target) {
+    target.health -= attackPoints;
+  }
+
+  console.log(miniBoss.showDialogue());
+  console.log(miniBoss.showLastWords());
+
+  // short hand ES6
+  function createEnemy(health, attack) {
+    return {
+      health,
+      attack
+    }
+  }
+  let weakEnemy = createEnemy(45, 3);
+  console.log(weakEnemy)
+  attackEnemy(5, weakEnemy);
+  console.log(weakEnemy)
+
+
+  console.log('immuneToPoison' in miniBoss);
+  // console.log(miniBoss.immune to poison);
+  console.log(miniBoss['immune to poison']);
+  let prop = 'immune to poison';
+
+  console.log(miniBoss[prop]);
+
+  delete miniBoss.immuneToDeath;
+  console.log(miniBoss);
+
+
+  // for...in
+  miniBoss;
+  let keys = Object.keys(miniBoss);
+  keys;
+
+  for(let i = 0; i < keys.length; i++){
+    miniBoss[keys[i]]; // 100
+  }
+
+
+  for (let key in miniBoss) {
+    console.log(key);
+    console.log(miniBoss[key]);
+    
+  }
+  // for 
+  // for..in 
+  // for..of // array like 
+
+
+  // comparing objects
+  let weakling1 = createEnemy(20, 3);
+  let weakling2 = createEnemy(20, 3);
+  weakling1;
+  weakling2;
+  console.log(weakling1 == weakling2);
+
+  let weakling3 = weakling2;
+
+  attackEnemy(3, weakling2);
+  console.log({ weakling1, weakling2, weakling3 });
+  console.log(weakling1 == weakling2);
+  console.log(weakling2 == weakling3);
+  //this keyword
+  
+
+
+}
+//object methods
+{
+  // intro to browser compatibility 
+  console.log([].__proto__)
+  console.log(Object.keys(miniBoss));
+  console.log(Object.values(miniBoss));
+  
+
+  let mudLord = createEnemy(50, 5);
+  console.log(mudLord);
+  Object.assign(mudLord, miniBoss);
+  console.log(mudLord);
+  console.log(mudLord.attack);
+
+  // Prototypal inheritance in javascript
+
+
+  console.log([] instanceof Object);
+  
+  console.log(Object.getPrototypeOf([]));
+
+  
+}
+
+// this  
+
+  // value of this is evaluated in runtime based on context
+  // Global context
+  
+  console.log('this', this);
+
+  (function funcName() {
+    globalVar = 89;
+  })();
+
+  // Function Context 
+
+
+  function aFunction() {
+    let a = 78;
+    this.b = 98;
+    return this; // global this 
+  }
+
+  console.log('aFunction', aFunction());
+
+  // Constructor function 
+  function PersonConstructor(name, age, gender = 'Male'){
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.say = this.name + ' is ' +  this.age + ' years old.';
+    this.getAge = function () {
+      
+      return this.age;// this here is on what it is called -  john 
+    }
+  }
+
+
+  let john = new PersonConstructor('john', 54);
+  let jill = new PersonConstructor('Jill', 78, 'Female');
+  jill;
+  
+  console.log(john.getAge());
+  console.log(jill.getAge());
+
+  // Arrow function doesn't have it's own this it takes this from outer scope
+  function Person() {
+    // The Person() constructor defines `this` as an instance of itself.
+    this.age = 0;
+    setTimeout(function growUp() {
+      debugger;
+      this.age++; // this is global object inside settimeout function
+    }, 2000);
+  }
+  
+  var p = new Person();
+  console.log(p.age);
+  
+
+  function Person_() {
+    var that = this;
+    // var me = this;
+    that.age = 0;
+    
+    setTimeout(function growUp() {
+      
+      // The callback refers to the `that` variable of which
+      // the value is the expected object.
+      that.age++;
+    }, 1000);
+  }
+  
+  p = new Person_();
+
+  function PersonArrowFunc(){
+    this.age = 0;
+    
+    setTimeout(() => {
+      
+      this.age++; // |this| properly refers to the Person object
+    }, 1000);
+  }
+  
+  var p = new PersonArrowFunc();
+
+//call apply bind 
+{
+  // passing this to a function 
+  var user = {
+    name: 'John'
+  };
+
+  var name = 'Jill';
+
+  function aGenericFunction(alias1, alias2) {
+    console.log('this', this);
+    console.log(alias1, alias2);
+    
+    return this.name;
+  }
+
+  console.log(aGenericFunction());
+  
+  console.log(aGenericFunction.call(user, 'Johnny', "JJ"));
+  console.log(Object.prototype.toString.call([]));
+  
+  console.log(aGenericFunction.apply(user, ['Joh', 'boss']));
+  let bGenericFunction = aGenericFunction.apply({name: 'bon'});
+
+  
+
+  //binding this to a function
+  let aName = aGenericFunction.bind({name: 'mario'});
+  console.log(aName());
+  
+  // can bind only once
+  let bName = aName.bind({name : 'bindAlternateName'});
+  console.log(bName());
+  
+  let map = {
+    name: 'joker',
+    aName: aName,
+    bName: bName
+  }
+
+  console.log(map.aName());
+  console.log(map.bName());
+}
