@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+  <!-- html comment -->
+  <style>
+    * {
+      box-sizing : border-box;
+    }
+    div.box {
+      width: 100%;
+      padding: 100px; /* padding gets color margin doesn't */ 
+    }
+    .outer {
+      background-color: aqua;
+    }
+
+    .middle {
+      background-color: burlywood;
+    }
+
+    .inner {
+      background-color: darkslategrey;
+    }
+  </style>
+</head>
+<body id="theBody" class="class-name">
+  Special Question : <input type="text" id="special" required data-question-id="42" onclick="console.log('clicked')">
+
+  <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, quo!</span>
+  <a href="#">click me!</a>
+  
+  Name: <input type="text" placeholder="Enter Name" />
+
+  <br>
+  ok
+
+
+  <table id="aTable">
+    <tr>
+      <td>one</td><td>two</td>
+    </tr>
+    <tr>
+      <td>three</td><td>four</td>
+    </tr>
+  </table>
+
+  
+
+  <div class="box outer">
+    <div class="box middle">
+      <div class="box inner"><!-- comment --></div>
+    </div>
+  </div>
+
+  <br>
+  ------------
+  <div class="box" id="boxContainer">
+
+  </div>
+
+
+
+
+  <form>
+    <div>
+      <label for="uname">Choose a username: </label>
+      <input type="text" id="uname" name="name" required size="45"
+             pattern="[a-z]{4,8}" title="4 to 8 lowercase letters">
+      <span class="validity"></span>
+      <p>Usernames must be lowercase and 4-8 characters in length.</p>
+    </div>
+    <div>
+      <button>Submit</button>
+    </div>
+  </form>
+
+
+  <script src="script.js"></script>
+</html>
