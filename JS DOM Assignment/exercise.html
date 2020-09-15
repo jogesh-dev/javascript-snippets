@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise</title>
+</head>
+<body>
+  <button> Button 0</button>
+  <button> Button 1</button>
+  <button> Button 2</button>
+  <button> Button 3</button>
+  <button> Button 4</button>
+  <button> Button 5</button>
+
+  <script>
+    var buttons = document.getElementsByTagName('button');
+
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function() {
+          alert('You clicked on button #' + i);
+      });
+    }
+    // on click of button proper alert message should show, e.g. On click of Button 3 'You clicked on button #3' should be alerted 
+    // what is wrong with above and how would you fix it? 
+
+    
+  </script>
+</body>
+</html>
