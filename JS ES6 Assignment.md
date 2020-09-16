@@ -7,6 +7,7 @@
 
 	From the document
 	find all text nodes (node.nodeType==3) from document using for loop and recursion.
+	
 	function findAllTextNodes(node = document.body){
 		var allTextNodes = [];
 
