@@ -8,13 +8,15 @@
 	From the document
 	find all text nodes (node.nodeType==3) from document using for loop and recursion.
 	
-	```function findAllTextNodes(node = document.body){
+	```
+	function findAllTextNodes(node = document.body){
 		var allTextNodes = [];
 
 		 // use for loop and recursion to add text node to allTextNodes array 
 
 		return allTextNodes;
-	}```
+	}
+	```
 
 	check for text content of each node and replace the blacklisted word with masked word.
 
