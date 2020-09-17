@@ -1,0 +1,29 @@
+table {
+  border: solid 1px #444;
+  margin: 10px;
+  padding: 10px;
+}
+
+table thead {
+  font-weight: 900;
+  background-color: lightgrey;
+}
+
+div#image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: lightgrey;
+}
+
+div#image-gallery .dog {
+  flex: 0 1 auto;
+}
+
+.animate-img {
+  width: 400px;
+  transition: width 1s;
+}
+.animate-img.full {
+  width: 100%;
+}
