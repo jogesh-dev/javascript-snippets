@@ -4,8 +4,8 @@
 
 > interpolation - 
 
-  > One Way ts --> html
-  > Example `<p>{{ someValue }}</p>`
+  >> One Way ts --> html
+  >> Example `<p>{{ someValue }}</p>`
   
 > property binding 
 
