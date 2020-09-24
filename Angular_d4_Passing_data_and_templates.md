@@ -3,19 +3,34 @@
 ### Passing data betwwen template to component
 
 > interpolation - 
+
   > One Way ts --> html
   > Example `<p>{{ someValue }}</p>`
+  
 > property binding 
+
    > One way ts --> html
+   
    > example `<button [disabled]="booleanValue">click me </button>`
+   
   > Class binding `<div [class.myClass]="booleanValue"></div>`
+  
   > Style binding `<div [style.backgroundColor]="'red'"></div>`
+  
+  
 > Event Binding
+
   > One way html --> ts 
+  
   > Example `<button (click)="aFunction()">click me </button>`
+  
 > Two way binding
+
   > NEed to import of Formsmodule
+  
   > `<button (click)="aFunction()" [(ngModel)]="data">click me </button>`
+  
+  
 
 ### Passing data between parent and child components
 
